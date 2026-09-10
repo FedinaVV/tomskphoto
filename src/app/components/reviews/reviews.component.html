@@ -1,0 +1,33 @@
+<section class="reviews" id="reviews">
+  <div class="section-inner">
+    <h2 class="section-title">Отзывы</h2>
+    <div class="slider-wrapper">
+      <button
+        (click)="prev()"
+        [disabled]="currentOffset() === 0"
+      >&lt;</button>
+
+      <div class="slider-viewport">
+        <div
+          class="slider-track"
+          [style.transform]="'translateX(-' + (currentOffset() * (100 / totalItems())) + '%)'"
+        >
+          <div
+            class="slide-item"
+            *ngFor="let item of items(); trackBy: trackById"
+          >
+            {{ item.text }}
+            {{ item.name }}
+          </div>
+        </div>
+      </div>
+
+      <button
+        (click)="next()"
+        [disabled]="currentOffset() >= maxOffset()"
+      >&gt;</button>
+    </div>
+
+
+  </div>
+</section>

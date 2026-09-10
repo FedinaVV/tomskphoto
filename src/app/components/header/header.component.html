@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="header__inner">
+    <a class="logo" href="#">Valeria Fedina</a>
+
+    <nav class="nav" [class.open]="menuOpen">
+      <a href="#services" (click)="menuOpen=false">Портрет</a>
+      <a href="#services" (click)="menuOpen=false">Предметка</a>
+      <a href="#services" (click)="menuOpen=false">Репортаж</a>
+      <a href="#portfolio" (click)="menuOpen=false">Портфолио</a>
+      <a href="#prices" (click)="menuOpen=false">Цены</a>
+      <a href="#contacts" (click)="menuOpen=false">Контакты</a>
+    </nav>
+
+    <div class="header__right">
+      <a class="header__phone" href="tel:+79234274208">+7 923 427-42-08</a>
+      <a class="btn-book" href="#booking">Забронировать дату</a>
+    </div>
+
+    <button class="burger" (click)="menuOpen = !menuOpen" [class.open]="menuOpen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

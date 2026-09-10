@@ -1,0 +1,22 @@
+<section class="prices" id="prices">
+  <div class="section-inner">
+    <h2 class="section-title">Цены</h2>
+    <div class="prices__grid">
+      @for (plan of plans; track plan.title) {
+        <div class="price-card">
+          <img [src]="plan.img" [alt]="plan.title" />
+          <div class="price-card__body">
+            <h3>{{ plan.title }}</h3>
+            <ul>
+              @for (f of plan.features; track f) {
+                <li>{{ f }}</li>
+              }
+            </ul>
+            <div class="price-card__price">{{ plan.price }}</div>
+            <a class="btn-book" href="#booking">Забронировать</a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

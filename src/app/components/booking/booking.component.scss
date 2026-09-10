@@ -1,0 +1,143 @@
+.booking {
+  padding: 6rem 0;
+  background: #f9f9f9;
+
+  &__sub {
+    font-size: 0.92rem;
+    color: #777;
+    margin-top: -1.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.booking-form {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  > label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  &--cols {
+    flex-direction: row;
+    gap: 1.2rem;
+
+    .form-group {
+      flex: 1;
+    }
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  input, select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #111;
+    background: #fff;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: #111;
+    }
+
+    &::placeholder {
+      color: #bbb;
+    }
+
+    &.input--invalid {
+      border-color: #d21616;
+    }
+
+  }
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+
+  input {
+    cursor: pointer;
+    accent-color: #111;
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: #666;
+  cursor: pointer;
+
+  input {
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #111;
+  }
+}
+
+.btn-submit {
+  align-self: flex-start;
+  padding: 0.85rem 2.5rem;
+  background: #111;
+  border-radius: 20px;
+  color: #fff;
+  border: none;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s;
+
+  &:hover:not(:disabled) {
+    background: #333;
+  }
+
+  &:disabled {
+    background: #bbb;
+    cursor: default;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-row--cols {
+    flex-direction: column;
+  }
+}

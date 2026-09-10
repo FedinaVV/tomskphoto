@@ -1,0 +1,41 @@
+.about {
+  padding: 6rem 0;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  &__photo img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    strong { color: #111; }
+
+    .btn-book { align-self: flex-start; margin-top: 0.8rem; }
+  }
+}
+
+@media (max-width: 1024px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+
+    .about__photo { max-width: 400px; }
+  }
+}

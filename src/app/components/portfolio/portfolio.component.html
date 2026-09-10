@@ -1,0 +1,12 @@
+<section class="portfolio" id="portfolio">
+  <div class="section-inner">
+    <h2 class="section-title">Портфолио</h2>
+    <div class="portfolio__grid">
+      @for (item of items; track item.url) {
+        <div class="p-item" [class.p-item--wide]="item.wide">
+          <img [src]="item.url" alt="" loading="lazy" />
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+<section class="booking" id="booking">
+  <div class="section-inner">
+    <h2 class="section-title">Забронировать дату</h2>
+    <p class="booking__sub">Оставьте заявку и я свяжусь с вами в течение нескольких часов</p>
+    <form class="booking-form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-row">
+        <label>Тип съёмки</label>
+        <div class="radio-group">
+          <label class="radio"><input type="radio"
+                                      formControlName="type"
+                                      [ngClass]="{'input--invalid': form.controls.type.touched && form.controls.type.invalid}"
+                                      value="wedding" /> Свадьба</label>
+          <label class="radio"><input type="radio" formControlName="type" value="family" /> Семья</label>
+          <label class="radio"><input type="radio" formControlName="type" value="portrait" /> Портрет</label>
+          <label class="radio"><input type="radio" formControlName="type" value="other" /> Другое</label>
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="form.controls.type.value == 'family' || form.controls.type.value == 'portrait'">
+        <label>Место проведения</label>
+        <input type="text" formControlName="address"
+               [ngClass]="{'input--invalid': form.controls.address.touched && form.controls.address.invalid}"
+               placeholder="Адрес" />
+      </div>
+
+      <div class="form-row form-row--cols">
+        <div class="form-group">
+          <label>Желаемая дата</label>
+          <input type="date"
+                 [ngClass]="{'input--invalid': form.controls.date.touched && form.controls.date.invalid}"
+                 formControlName="date"/>
+        </div>
+        <div class="form-group">
+          <label>Город</label>
+          <input type="text"
+                 formControlName="city"
+                 [ngClass]="{'input--invalid': form.controls.city.touched && form.controls.city.invalid}"
+                 placeholder="Томск" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Ваше имя и телефон</label>
+        <input type="text" formControlName="name"
+               [ngClass]="{'input--invalid': form.controls.name.touched && form.controls.name.invalid}"
+               placeholder="Имя" />
+        <!--<input type="text" formControlName="phone"
+               appPhoneMask
+               autocomplete="off"
+               [ngClass]="{'input--invalid': form.controls.phone.touched && form.controls.phone.invalid}" />-->
+        <input type="text" formControlName="phone"
+               [ngClass]="{'input--invalid': form.controls.phone.touched && form.controls.phone.invalid}" />
+      </div>
+      <div class="form-group">
+        <label for="communication">Способ связи</label>
+        <select id="communication" formControlName="contact" [ngClass]="{'input--invalid': form.controls.contact.touched && form.controls.contact.invalid}">
+          <option value="whatsapp"> WhatsApp </option>
+          <option value="telegram"> Telegram </option>
+          <option value="call"> Позвонить </option>
+        </select>
+      </div>
+
+      <label class="checkbox">
+        <input type="checkbox" formControlName="agree" />
+        Я согласен(а) на обработку персональных данных
+      </label>
+      <button type="submit" class="btn-submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
