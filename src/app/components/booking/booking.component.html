@@ -1,7 +1,13 @@
 <section class="booking" id="booking">
   <div class="section-inner">
     <h2 class="section-title">Забронировать дату</h2>
-    <p class="booking__sub">Оставьте заявку и я свяжусь с вами в течение нескольких часов</p>
+    <p class="booking__sub">Заполните форму — откроется выбранный мессенджер с готовым сообщением, останется только нажать «Отправить».</p>
+    @if (submitError) {
+      <p class="booking__notice booking__notice--error" role="alert">{{ submitError }}</p>
+    }
+    @if (submitMessage) {
+      <p class="booking__notice booking__notice--success" role="status" aria-live="polite">{{ submitMessage }}</p>
+    }
     <form class="booking-form" [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-row">
         <label>Тип съёмки</label>
@@ -47,15 +53,16 @@
                appPhoneMask
                autocomplete="off"
                [ngClass]="{'input--invalid': form.controls.phone.touched && form.controls.phone.invalid}" />-->
-        <input type="text" formControlName="phone"
+        <input type="tel" formControlName="phone" autocomplete="tel"
                [ngClass]="{'input--invalid': form.controls.phone.touched && form.controls.phone.invalid}" />
       </div>
       <div class="form-group">
-        <label for="communication">Способ связи</label>
+        <label for="communication">Куда отправить заявку</label>
         <select id="communication" formControlName="contact" [ngClass]="{'input--invalid': form.controls.contact.touched && form.controls.contact.invalid}">
-          <option value="whatsapp"> WhatsApp </option>
-          <option value="telegram"> Telegram </option>
-          <option value="call"> Позвонить </option>
+          <option value="" disabled>Выберите способ связи</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="telegram">Telegram</option>
+          <option value="call">Позвонить</option>
         </select>
       </div>
 
@@ -63,7 +70,7 @@
         <input type="checkbox" formControlName="agree" />
         Я согласен(а) на обработку персональных данных
       </label>
-      <button type="submit" class="btn-submit">Отправить заявку</button>
+      <button type="submit" class="btn-submit">{{ submitButtonLabel }}</button>
     </form>
   </div>
 </section>
