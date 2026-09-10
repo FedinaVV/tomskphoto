@@ -1,9 +1,16 @@
 <section class="services" id="services">
+  <div class="section-inner services__intro">
+    <h1 class="services__title">Фотограф в Томске — фото и фотосессии</h1>
+    <p class="services__lead">
+      Живые фото в Томске для личных историй, семейных событий и бизнеса.
+      Подберём формат и локацию для вашей фотосессии в Томске.
+    </p>
+  </div>
   <div class="services__grid">
     @for (s of services; track s.title) {
       <a class="service-card" href="#booking">
         <div class="service-card__img">
-          <img [src]="s.img" [alt]="s.title" />
+          <img [src]="s.img" [alt]="s.title + ' в Томске'" />
         </div>
         <div class="service-card__body">
           <h2>{{ s.title }}</h2>

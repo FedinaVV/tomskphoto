@@ -37,7 +37,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class App {
   constructor(private titleService: Title) {
-    this.titleService.setTitle('Фотограф Валерия Федина');
+    this.titleService.setTitle('Фотограф в Томске — фото и фотосессии | Валерия Федина');
   }
 
 }

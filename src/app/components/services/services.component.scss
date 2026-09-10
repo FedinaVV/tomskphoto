@@ -1,6 +1,25 @@
 .services {
   margin-top: 60px;
 
+  &__intro {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  &__title {
+    max-width: 760px;
+    margin-bottom: 0.8rem;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    font-weight: 600;
+  }
+
+  &__lead {
+    max-width: 700px;
+    color: #666;
+    font-size: 1rem;
+  }
+
   &__grid {
     display: grid;
     //grid-template-columns: repeat(3, 1fr);
