@@ -25,19 +25,21 @@ import { Title } from '@angular/platform-browser';
   ],
   template: `
     <app-header />
-    <app-services />
-    <app-reviews />
-    <app-about />
-    <app-portfolio />
-    <app-prices />
-    <app-booking />
-    <app-contacts />
+    <main id="main-content">
+      <app-services />
+      <app-reviews />
+      <app-about />
+      <app-portfolio />
+      <app-prices />
+      <app-booking />
+      <app-contacts />
+    </main>
     <app-footer />
   `
 })
 export class App {
   constructor(private titleService: Title) {
-    this.titleService.setTitle('Фотограф в Томске — фото и фотосессии | Валерия Федина');
+    this.titleService.setTitle('Фотограф в Томске — фотосессии и фото | Валерия Федина');
   }
 
 }

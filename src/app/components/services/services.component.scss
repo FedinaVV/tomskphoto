@@ -20,6 +20,14 @@
     font-size: 1rem;
   }
 
+  &__text {
+    max-width: 760px;
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
   &__grid {
     display: grid;
     //grid-template-columns: repeat(3, 1fr);

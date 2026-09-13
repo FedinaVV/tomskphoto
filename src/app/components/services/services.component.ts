@@ -9,22 +9,22 @@ export class ServicesComponent {
   services = [
     {
       img: 'assets/images/services/wed.jpg',
-      title: 'Свадьба',
-      desc: 'Чувственные свадебные фотосессии'
+      title: 'Свадебная фотосессия',
+      desc: 'Чувственная съёмка вашей истории'
     },
     {
       img: 'assets/images/services/port.jpg',
-      title: 'Портрет',
-      desc: 'Простота и элегантность восхищают'
+      title: 'Портретная фотосессия',
+      desc: 'Простота и элегантность в каждом кадре'
     },
     {
       img: 'assets/images/services/event.jpg',
-      title: 'Репортаж',
+      title: 'Репортажная съёмка',
       desc: 'Запечатлим любые события'
     },
     {
       img: 'assets/images/services/lookbook.jpg',
-      title: 'Лукбук',
+      title: 'Лукбук и контент',
       desc: 'Подготовим любой образ'
     }
   ];

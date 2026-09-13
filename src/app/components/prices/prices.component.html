@@ -1,10 +1,10 @@
 <section class="prices" id="prices">
   <div class="section-inner">
-    <h2 class="section-title">Цены</h2>
+    <h2 class="section-title">Цены на фотосессии в Томске</h2>
     <div class="prices__grid">
       @for (plan of plans; track plan.title) {
         <div class="price-card">
-          <img [src]="plan.img" [alt]="plan.title" />
+          <img [src]="plan.img" [alt]="plan.title + ' — фотосессия в Томске'" loading="lazy" decoding="async" />
           <div class="price-card__body">
             <h3>{{ plan.title }}</h3>
             <ul>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: tomskphoto.ru
 Sitemap: https://tomskphoto.ru/sitemap.xml
