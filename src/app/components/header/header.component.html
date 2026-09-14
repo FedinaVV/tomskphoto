@@ -1,19 +1,19 @@
 <header class="header">
   <div class="header__inner">
-    <a class="logo" href="/" aria-label="Валерия Федина — фотограф в Томске">Valeria Fedina</a>
+    <a class="logo" routerLink="/" aria-label="Валерия Федина — фотограф в Томске">Valeria Fedina</a>
 
     <nav class="nav" [class.open]="menuOpen">
-      <a href="#services" (click)="menuOpen=false">Портрет</a>
-      <a href="#services" (click)="menuOpen=false">Предметка</a>
-      <a href="#services" (click)="menuOpen=false">Репортаж</a>
-      <a href="#portfolio" (click)="menuOpen=false">Портфолио</a>
-      <a href="#prices" (click)="menuOpen=false">Цены</a>
-      <a href="#contacts" (click)="menuOpen=false">Контакты</a>
+      <a routerLink="/portretnaya-fotosessiya-v-tomske" (click)="menuOpen=false">Портрет</a>
+      <a routerLink="/predmetnaya-semka-v-tomske" (click)="menuOpen=false">Предметка</a>
+      <a routerLink="/reportazhnaya-semka-v-tomske" (click)="menuOpen=false">Репортаж</a>
+      <a routerLink="/" fragment="portfolio" (click)="menuOpen=false">Портфолио</a>
+      <a routerLink="/" fragment="prices" (click)="menuOpen=false">Цены</a>
+      <a routerLink="/" fragment="contacts" (click)="menuOpen=false">Контакты</a>
     </nav>
 
     <div class="header__right">
       <a class="header__phone" href="tel:+79234274208">+7 923 427-42-08</a>
-      <a class="btn-book" href="#booking">Забронировать дату</a>
+      <a class="btn-book" routerLink="/" fragment="booking">Забронировать дату</a>
     </div>
 
     <button class="burger" (click)="menuOpen = !menuOpen" [class.open]="menuOpen">

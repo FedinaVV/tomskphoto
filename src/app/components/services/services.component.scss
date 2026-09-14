@@ -38,6 +38,7 @@
 .service-card {
   display: block;
   overflow: hidden;
+  background: #fff;
 
   &__img {
     overflow: hidden;
@@ -67,6 +68,72 @@
       color: #777;
       margin-bottom: 1rem;
     }
+  }
+
+  &__title-link {
+    &:hover { text-decoration: underline; }
+  }
+
+  &__details {
+    color: #555;
+
+    summary {
+      cursor: pointer;
+      width: fit-content;
+      list-style: none;
+
+      &::-webkit-details-marker { display: none; }
+
+      &::after {
+        content: '+';
+        display: inline-block;
+        margin-left: 0.45rem;
+        transition: transform 0.2s ease;
+      }
+    }
+
+    &[open] summary::after { transform: rotate(45deg); }
+
+    &-intro {
+      margin: 1rem 0 1.1rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: #555;
+    }
+
+    &-facts {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1rem 0 1.2rem;
+
+      > div {
+        padding-top: 0.7rem;
+        border-top: 1px solid #e8e8e8;
+      }
+
+      dt {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #777;
+      }
+
+      dd {
+        margin: 0.25rem 0 0;
+        font-size: 0.88rem;
+        line-height: 1.6;
+        color: #555;
+      }
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #111;
+    border-bottom: 1px solid #111;
+    padding-bottom: 1px;
   }
 }
 

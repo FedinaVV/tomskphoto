@@ -7,21 +7,49 @@
     </p>
     <p class="services__text">
       Ищете фото в Томске или фотографа для важного события? Проведу портретную,
-      семейную, свадебную и репортажную съёмку — в студии, на улице или в выбранной вами локации.
+      предметную, семейную, свадебную и репортажную съёмку — в студии, на улице или в выбранной вами локации.
     </p>
   </div>
   <div class="services__grid">
     @for (s of services; track s.title) {
-      <a class="service-card" href="#booking">
+      <article class="service-card">
         <div class="service-card__img">
           <img [src]="s.img" [alt]="s.title + ' в Томске'" />
         </div>
         <div class="service-card__body">
-          <h2>{{ s.title }}</h2>
+          <h2>
+            @if (s.route) {
+              <a class="service-card__title-link" [routerLink]="s.route">{{ s.title }}</a>
+            } @else {
+              {{ s.title }}
+            }
+          </h2>
           <p>{{ s.desc }}</p>
-          <span class="more">подробнее</span>
+          <details class="service-card__details">
+            <summary class="more">подробнее</summary>
+            <p class="service-card__details-intro">{{ s.details }}</p>
+            <dl class="service-card__facts">
+              <div>
+                <dt>Кому подходит</dt>
+                <dd>{{ s.forWhom }}</dd>
+              </div>
+              <div>
+                <dt>Что входит</dt>
+                <dd>{{ s.includes }}</dd>
+              </div>
+              <div>
+                <dt>Формат</dt>
+                <dd>{{ s.format }}</dd>
+              </div>
+              <div>
+                <dt>Длительность</dt>
+                <dd>{{ s.duration }}</dd>
+              </div>
+            </dl>
+            <a class="service-card__cta" href="#booking">Оставить заявку</a>
+          </details>
         </div>
-      </a>
+      </article>
     }
   </div>
 </section>

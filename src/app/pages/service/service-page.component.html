@@ -1,0 +1,65 @@
+<main class="service-page" id="main-content">
+  <section class="service-page__hero">
+    <div class="section-inner service-page__hero-inner">
+      <div class="service-page__hero-copy">
+        <a class="service-page__back" routerLink="/" fragment="services">← Все услуги</a>
+        <p class="service-page__eyebrow">Фотограф в Томске</p>
+        <h1>{{ service.title }}</h1>
+        <p class="service-page__lead">{{ service.intro }}</p>
+        <a class="btn-book" routerLink="/" fragment="booking">Оставить заявку</a>
+      </div>
+      <img
+        class="service-page__hero-image"
+        [src]="service.image"
+        [alt]="service.imageAlt"
+        width="900"
+        height="700"
+      />
+    </div>
+  </section>
+
+  <article class="section-inner service-page__content">
+    @for (paragraph of service.paragraphs; track paragraph) {
+      <p class="service-page__paragraph">{{ paragraph }}</p>
+    }
+
+    <div class="service-page__facts">
+      <section>
+        <h2>Кому подходит</h2>
+        <p>{{ service.forWhom }}</p>
+      </section>
+
+      <section>
+        <h2>Что входит в работу</h2>
+        <ul>
+          @for (item of service.includes; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+
+      <section>
+        <h2>Формат съёмки</h2>
+        <p>{{ service.format }}</p>
+      </section>
+
+      <section>
+        <h2>Примерная длительность</h2>
+        <p>{{ service.duration }}</p>
+      </section>
+    </div>
+
+    <section class="service-page__result">
+      <h2>Что вы получите</h2>
+      <p>{{ service.result }}</p>
+    </section>
+
+    <section class="service-page__cta">
+      <h2>Обсудим вашу съёмку?</h2>
+      <p>Расскажите о задаче — подберём формат, локацию и удобную дату в Томске.</p>
+      <a class="btn-book" routerLink="/" fragment="booking">Оставить заявку</a>
+    </section>
+  </article>
+
+  <script type="application/ld+json" [textContent]="structuredData"></script>
+</main>
