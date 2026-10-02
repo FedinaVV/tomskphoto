@@ -95,12 +95,13 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .slider-wrapper {
     padding: 0 20px;
   }
   .slider-track {
     grid-auto-columns: 100%;
+    gap: 0;
   }
 }
 

@@ -10,7 +10,7 @@
       <div class="slider-viewport">
         <div
           class="slider-track"
-          [style.transform]="'translateX(-' + (currentOffset() * (100 / totalItems())) + '%)'"
+          [style.transform]="'translateX(-' + (currentOffset() * (100 / visibleItems())) + '%)'"
         >
           <div
             class="slide-item"

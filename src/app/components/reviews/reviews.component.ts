@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, HostListener, computed, signal } from '@angular/core';
 import { Slide } from '../../models';
 import { CommonModule } from '@angular/common';
 
@@ -11,8 +11,6 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class ReviewsComponent {
-  //public isMobile = signal(false);
-
   items = signal<Slide[]>([
     { id: 1, name: 'Анна К.', text: 'Валерия — настоящий профессионал. Я очень волновалась перед съёмкой, но она сразу создала такую атмосферу, что я расслабилась и получила удовольствие. Фотографии — просто невероятные, не могу выбрать любимую!' },
     { id: 2, name: 'Михаил и Дарья', text: 'Свадебная фотосессия с Валерией — это было что-то особенное. Она незаметно присутствовала рядом, ловила каждый момент. Когда мы получили фотографии, плакали от счастья.' },
@@ -25,23 +23,34 @@ export class ReviewsComponent {
     { id: 9, name: 'Наталья В.', text: 'Спасибо Валерии за невероятную работу! Детский и семейный портрет — это всегда непредсказуемо, но она нашла подход к каждому. Фото стоят на стене и радуют каждый день.' },
   ]);
 
-  /*@HostListener('window:resize', ['$event'])
-  onResize(event?: Event): void {
-    const width = event ? (event.target as Window).innerWidth : window.innerWidth;
-    this.isMobile.set(width < 768);
-  }*/
+  private readonly isMobile = signal(false);
+
+  readonly visibleItems = computed(() => this.isMobile() ? 1 : 3);
+  readonly step = 1;
 
   constructor() {
-    //this.isMobile.set(window.innerWidth < 768);
+    this.updateViewport();
   }
 
-  readonly step = 3;
+  @HostListener('window:resize')
+  onResize(): void {
+    this.updateViewport();
+  }
+
+  private updateViewport(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    this.isMobile.set(window.innerWidth < 768);
+    this.currentOffset.update(offset => Math.min(offset, this.maxOffset()));
+  }
 
   currentOffset = signal(0);
 
   totalItems = computed(() => this.items().length);
 
-  maxOffset = computed(() => Math.max(0, this.totalItems() - this.step));
+  maxOffset = computed(() => Math.max(0, this.totalItems() - this.visibleItems()));
 
   next(): void {
     this.currentOffset.update(offset => Math.min(offset + this.step, this.maxOffset()));
@@ -56,5 +65,4 @@ export class ReviewsComponent {
   }
 
 }
-
 
